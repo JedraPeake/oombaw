@@ -1,4 +1,4 @@
-name: slappbot
-description: ☝️☝️ Check out the README ☝️☝️ in the repo for setup instructions. By the way, this is just the description in the bot.yml file - feel free to change it 😉
-avatar: .beepboop/avatar.png
+name: oombaw
+description: oombaw is a language bot to help language learners. it also happens to be the way Vietnamese people describe the sound cows make ("ụm bò")
+avatar: .beepboop/cow.jpg
 # To learn everything supported in the bot.yml file, visit https://beepboophq.com/docs/article/bot-yml
