@@ -31,7 +31,7 @@ module.exports = function(slapp){
       //=> I speak English
       console.log(res.from.language.iso);
       //=> nl
-      msg.respond(text + ': ' + res.text);
+      msg.respond(text + ': ' + res.text.toLowerCase());
 
       }).catch(err => {
         console.error(err);
