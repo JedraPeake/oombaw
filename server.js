@@ -125,47 +125,9 @@ server.listen(port, (err) => {
   console.log(`Listening on port ${port}`)
 })
 
-//Testing asking user for language preferences
-slapp
-  .message('^(setup)$', ['direct_mention', 'direct_message'], (msg, text) => {
-    msg
-      .say(`${text}, what language(s) are you fluent in?`)
-      // sends next event from user to this route, passing along state
-      .route('setup', { fluent: text })
-  })
-  .route('setup', (msg, state) => {
-    var text = (msg.body.event && msg.body.event.text) || ''
+//Testing new handlers
 
-    // user may not have typed text as their next action, ask again and re-route
-    if (!text) {
-      return msg
-        .say("Whoops, I'm still waiting to hear what languages can you speak.")
-        .say('What language do you speak fluently?')
-        .route('setup', state)
-    }
-
-    // add their response to state
-    state.status = text
-
-    msg
-      .say(`Ok then. What languages are you learning?`)
-      .route('learning', state)
-  })
-  .route('learning', (msg, state) => {
-    var text = (msg.body.event && msg.body.event.text) || ''
-
-    // user may not have typed text as their next action, ask again and re-route
-    if (!text) {
-      return msg
-        .say("I'm eagerly awaiting to hear the languages you're learning.")
-        .route('color', state)
-    }
-
-    // add their response to state
-    state.color = text
-
-    msg
-      .say('Thanks for sharing.')
-      .say(`Here's what you've told me so far: \`\`\`${JSON.stringify(state)}\`\`\``)
-    // At this point, since we don't route anywhere, the "conversation" is over
-  })
+//setup languages
+slapp.message('setup', 'mention', (msg) => {
+  msg.say('What languages do you speak fluently?')
+})
