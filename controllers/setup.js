@@ -1,4 +1,4 @@
-const translate = require('google-translate-api');
+const translate = require('google-translate-api-extended');
 
 module.exports = function(slapp){
 
