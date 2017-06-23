@@ -1,3 +1,4 @@
+const translate = require('google-translate-api');
 
 module.exports = function(slapp){
 
@@ -25,7 +26,17 @@ module.exports = function(slapp){
   slapp.command('/translate', (msg, text) => {
     // `respond` is used for actions or commands and uses the `response_url` provided by the
     // incoming request from Slack
-    msg.respond(`Glad you are in!` + text);
+    translate('Ik spreek Engels', {to: 'vi'}).then(res => {
+      console.log(res.text);
+      //=> I speak English
+      console.log(res.from.language.iso);
+      //=> nl
+      msg.respond(text + ': ' + res.text);
+
+      }).catch(err => {
+        console.error(err);
+      });
+
   });
 
 };
