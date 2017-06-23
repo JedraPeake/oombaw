@@ -27,11 +27,13 @@ module.exports = function(slapp){
     // `respond` is used for actions or commands and uses the `response_url` provided by the
     // incoming request from Slack
     translate(text, {to: 'vi'}).then(res => {
-      console.log(res.text);
+      var original = text;
+      var translated = res.text.toLowerCase();
+      //console.log(res.text);
       //=> I speak English
-      console.log(res.from.language.iso);
+      //console.log(res.from.language.iso);
       //=> nl
-      msg.respond(text + ': ' + res.text.toLowerCase());
+      msg.respond(original + ': ' + translated);
 
       }).catch(err => {
         console.error(err);
