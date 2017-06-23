@@ -125,9 +125,6 @@ server.listen(port, (err) => {
   console.log(`Listening on port ${port}`)
 })
 
-//Testing new handlers
-
-//setup languages
-slapp.message('setup', 'mention', (msg) => {
-  msg.say('What languages do you speak fluently?')
-})
+//fire custom controllers
+var setup = require('./controllers/setup');
+setup(slapp);
