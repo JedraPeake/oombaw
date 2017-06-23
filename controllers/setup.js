@@ -26,7 +26,7 @@ module.exports = function(slapp){
   slapp.command('/translate', (msg, text) => {
     // `respond` is used for actions or commands and uses the `response_url` provided by the
     // incoming request from Slack
-    translate('Ik spreek Engels', {to: 'vi'}).then(res => {
+    translate(text, {to: 'vi'}).then(res => {
       console.log(res.text);
       //=> I speak English
       console.log(res.from.language.iso);
