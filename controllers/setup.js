@@ -1,7 +1,7 @@
 
 module.exports = function(slapp){
 
-  //setup languages
+  //setup language preferences
   slapp.message('setup', 'mention', (msg) => {
     msg.say('What languages do you speak fluently?')
     .route('handleFirstLang');
@@ -22,6 +22,8 @@ module.exports = function(slapp){
   // slapp.route('handleConfirmSetup', (msg, state) => {
   //
   // });
-
+  slapp.message('/translate', (msg) => {
+    msg.say('Translating...');
+  });
 
 };
