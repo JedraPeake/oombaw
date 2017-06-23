@@ -16,10 +16,14 @@ module.exports = function(slapp){
   slapp.route('handleSecondLang', (msg, state) => {
     var text = (msg.body.event && msg.body.event.text) || '' ;
     state.lang2 = text;
-    msg.say('Okay. So you speak ' + state.lang1 + ' and you are learning ' + state.lang2 + '\. Is this correct?').route('handleConfirmSetup', state);
+    msg.route('handleConfirmSetup', state);
   });
 
-
+  slapp.route('handleConfirmSetup', (msg, state) => {
+    var text = (msg.body.event && msg.body.event.text) || '' ;
+    state.lang2 = text;
+    msg.say('Okay. So you speak ' + state.lang1 + ' and you are learning ' + state.lang2 + '\. Is this correct?').route('handleConfirmSetup', state);
+  });
 
 
 };
