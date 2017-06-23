@@ -15,8 +15,6 @@ var slapp = Slapp({
   context: Context()
 })
 
-
-
 // attach Slapp to express server
 var server = slapp.attachToExpress(express())
 
@@ -29,10 +27,10 @@ server.listen(port, (err) => {
   console.log(`Listening on port ${port}`)
 })
 
+
 //moved standard controllers
 var standard = require('./controllers/standard');
 standard(slapp);
-
 
 //fire custom controllers
 var setup = require('./controllers/setup');
