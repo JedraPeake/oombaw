@@ -22,8 +22,10 @@ module.exports = function(slapp){
   // slapp.route('handleConfirmSetup', (msg, state) => {
   //
   // });
-  slapp.message('/translate', (msg) => {
-    msg.say('Translating...');
-  });
+  slapp.command('/translate', /^t/, (msg) => {
+    // `respond` is used for actions or commands and uses the `response_url` provided by the
+    // incoming request from Slack
+    msg.respond(`Glad you are in ${match}!`)
+  })
 
 };
